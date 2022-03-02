@@ -1,0 +1,8 @@
+<app-img [img]="pizza.image"></app-img>
+<h2>{{ pizza.name | uppercase }}</h2>
+<p appHighlight>{{ pizza.description }}</p>
+<p>{{ pizza.price | currency: "$ " }}</p>
+<button (click)="onAddToCart()">Agregar</button>
+<button (click)="showDetail()">Ver Pizza</button>
+
+<div class="pizza-detail"></div>

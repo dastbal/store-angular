@@ -1,0 +1,7 @@
+<img [src]="img"    alt="" (error)="imgError()" *ngIf="img; else notImg">
+
+<ng-template #notImg>
+
+  <img [src]="tamplateImg"    alt="" >
+</ng-template>
+

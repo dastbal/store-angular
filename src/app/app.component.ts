@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Pizza } from './models/pizza.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'pizza-store';
+  imgParent = 'https://picsum.photos/400/200';
+  images : string[] = ['https://picsum.photos/900/200','https://picsum.photos/920/200','https://picsum.photos/960/200']
+
+
+
+
 }
