@@ -1,35 +1,40 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ImgComponent } from './components/img/img.component';
-import { PizzaComponent } from './components/pizza/pizza.component';
-import { PizzasComponent } from './components/pizzas/pizzas.component';
-import { NavComponent } from './components/nav/nav.component';
-import { HighlightDirective } from './directives/highlight.directive';
 import { SwiperModule } from 'swiper/angular';
+import { TimeInterceptor } from './interceptors/time.interceptor';
+import { TokenInterceptor } from './interceptors/token.interceptor';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ImgComponent,
-    PizzaComponent,
-    PizzasComponent,
-    NavComponent,
-    HighlightDirective
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    SwiperModule
+    SwiperModule,
 
   ],
-  providers: [],
+  providers: [
+    {
+    provide: HTTP_INTERCEPTORS ,
+    useClass : TimeInterceptor,
+    multi : true,
+  },
+    {
+    provide: HTTP_INTERCEPTORS ,
+    useClass : TokenInterceptor,
+    multi : true,
+  },
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

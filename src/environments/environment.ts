@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  APi_url : 'https://pure-hamlet-79993.herokuapp.com',
+
 };
 
 /*

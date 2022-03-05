@@ -1,0 +1,10 @@
+<a [routerLink]="['/pizza', pizza._id]">
+  <app-img [img]="pizza.image"></app-img>
+</a>
+<h2>{{ pizza.name | uppercase }}</h2>
+<p appHighlight>{{ pizza.description }}</p>
+<p>{{ pizza.price | currency: "$ " }}</p>
+<button (click)="onAddToCart()">Agregar</button>
+<a routerLink="." [queryParams]="{ pizza: pizza._id }">Ver Pizza</a>
+
+<div class="pizza-detail"></div>

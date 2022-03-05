@@ -1,0 +1,62 @@
+<div class="show-mobile">
+  <div>
+    <button type="button" (click)="toggleMenu()">
+      <img src="./assets/svg/icon_menu.svg" alt="menu" />
+    </button>
+    <a routerLink="">
+      <img
+        src="./assets/svg/pizza-svgrepo-com.svg"
+        style="width: 40px"
+        alt="logo"
+      />
+    </a>
+    <a class="cart" href="">
+      <p class="counter">{{ counter }}</p>
+      <img src="./assets/svg/icon_shopping_cart.svg" alt="logo" />
+    </a>
+  </div>
+  <div [class.active]="activeMenu" class="side-menu">
+    <button (click)="toggleMenu()" type="button">Close</button>
+    <ul>
+      <li><a routerLinkActive="active" routerLink="">Home</a></li>
+      <li><a routerLinkActive="active" href="">Pizza</a></li>
+    </ul>
+  </div>
+</div>
+<div class="hide-mobile">
+  <div>
+    <nav>
+      <a class="logo" routerLink="">
+        <img
+          src="./assets/svg/pizza-svgrepo-com.svg"
+          style="width: 40px"
+          alt="logo"
+        />
+      </a>
+      <ul>
+        <li><a routerLinkActive="active" routerLink="">Home</a></li>
+        <li><a routerLinkActive="active" href="">Pizza</a></li>
+      </ul>
+    </nav>
+    <div class="info">
+      <div class="account">
+        <button *ngIf="!isLogged; else elseBlock" (click)="login()">
+          Iniciar Session
+        </button>
+        <ng-template #elseBlock>
+          <a routerLink="profile">
+            {{ profile?.user?.firstName }} {{ profile?.user?.lastName }}
+          </a>
+          <button (click)="logout()">Cerrar Session</button>
+        </ng-template>
+      </div>
+      <div>
+        <a class="cart" href="">
+          <p class="counter">{{ counter }}</p>
+
+          <img src="./assets/svg/icon_shopping_cart.svg" alt="logo" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="pizzas--grid">
+  <app-pizza
+    (pizzaAdded)="onAddToShoppingCart($event)"
+    (pizzaDetail)="showPizzaDetail($event)"
+    [pizza]="pizza"
+    *ngFor="let pizza of pizzas"
+  ></app-pizza>
+</div>
+<button (click)="loadMore()">Mas Pizzas ....</button>
+<div class="pizza-detail" [class.active]="showDetail">
+  <div>
+    <button (click)="togglePizzaDetail()">Close</button>
+    <app-pizza [pizza]="pizzaDetail"></app-pizza>
+  </div>
+</div>
+<button (click)="createNewPizza()">Crear</button>

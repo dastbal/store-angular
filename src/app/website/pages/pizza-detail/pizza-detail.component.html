@@ -1,0 +1,11 @@
+<div class="page-pizza">
+  <button (click)="goToBack()">Back</button>
+  <div class="detail" *ngIf="pizza">
+    <img [src]="pizza.image" [alt]="pizza.name" />
+    <div>
+      <h1>{{ pizza?.name }}</h1>
+      <h2>{{ pizza?.price | currency }}</h2>
+      <p>{{ pizza?.description }}</p>
+    </div>
+  </div>
+</div>

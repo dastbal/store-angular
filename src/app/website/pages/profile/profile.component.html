@@ -1,0 +1,6 @@
+<div>
+  <h1>Profile</h1>
+  <h2>{{ profile?.user?.firstName }} {{ profile?.user?.lastName }}</h2>
+  <p>Email: {{ profile?.user?.email }}</p>
+  <a *ngIf="profile?.role === 'admin'" routerLink="/cms">Administrador</a>
+</div>
